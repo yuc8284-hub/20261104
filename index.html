@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英文小能手 - 畫線連連看</title>
+    <!-- 引入 p5.js 核心程式庫 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Microsoft JhengHei', sans-serif;
+        }
+
+        body {
+            background-color: #fbf8cc;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #start-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fbf8cc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+        }
+
+        .cover-box {
+            background-color: #ffffff;
+            border: 6px solid #a3c4f3;
+            border-radius: 24px;
+            padding: 40px 60px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .cover-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .cover-sub {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .big-btn {
+            background-color: #a3c4f3;
+            color: #222;
+            border: none;
+            border-radius: 40px;
+            padding: 12px 35px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.1s, background-color 0.2s;
+        }
+
+        .big-btn:hover {
+            background-color: #72aef8;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="start-screen">
+        <div class="cover-box">
+            <div class="cover-title">英文小能手</div>
+            <div class="cover-sub">歡迎來到英文小能手！動動手指來連連看吧 ✨</div>
+            <button class="big-btn" onclick="launchGame()">開始遊戲</button>
+        </div>
+    </div>
+
+    <!-- 引入 sketch.js 遊戲主程式 -->
+    <script src="sketch.js"></script>
+    <script>
+        function launchGame() {
+            document.getElementById('start-screen').style.display = 'none';
+            if (typeof startGame === 'function') {
+                startGame();
+            }
+        }
+    </script>
+</body>
+</html>
